@@ -1,0 +1,92 @@
+{
+  "name": "Google Drive and Notion",
+  "nodes": [
+    {
+      "parameters": {
+        "pollTimes": {
+          "item": [
+            {
+              "mode": "everyMinute"
+            }
+          ]
+        },
+        "triggerOn": "specificFolder",
+        "folderToWatch": {
+          "__rl": true,
+          "value": "18C0w-t0TOowHq9q98HJARkMrI7YtsEZ9",
+          "mode": "list",
+          "cachedResultName": "Demo",
+          "cachedResultUrl": "https://drive.google.com/drive/folders/18C0w-t0TOowHq9q98HJARkMrI7YtsEZ9"
+        },
+        "event": "fileCreated",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDriveTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "c08fdf14-9edd-47e1-b220-9d5573158d6b",
+      "name": "Google Drive Trigger",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "kkS3NlMoYYb0qAIL",
+          "name": "Google Drive account 3"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "databasePage",
+        "databaseId": {
+          "__rl": true,
+          "value": "1e5ccdb2-3d99-80f4-9c37-f4418bdf0c8f",
+          "mode": "list",
+          "cachedResultName": "Files Uploaded - Google Drive",
+          "cachedResultUrl": "https://www.notion.so/1e5ccdb23d9980f49c37f4418bdf0c8f"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.2,
+      "position": [
+        220,
+        0
+      ],
+      "id": "55f5f5ba-4bd8-41ab-9ccc-b1d9016194ce",
+      "name": "Notion",
+      "credentials": {
+        "notionApi": {
+          "id": "7OfaTSlzLEr2W2qe",
+          "name": "Notion account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Google Drive Trigger": {
+      "main": [
+        [
+          {
+            "node": "Notion",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "a672122a-1fc6-4abb-ad96-e96da4128812",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "f96a7e8659163312cbaf16ad76688747ea79fa6bf8e4ec720c14444abdf2c12c"
+  },
+  "id": "qXth1Mm7tqhtz44J",
+  "tags": []
+}
